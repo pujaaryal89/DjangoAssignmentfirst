@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css" href="{% static 'css/style.css' %}"></style>
+</head>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+.m-f{
+  font-family: 'Aclonica', sans-serif;
+  text-transform: uppercase;
+}
+.btn{
+  background-color: transparent;
+  border: 3px solid #ffffff;
+  padding: 15px 35px;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 15px;
+  transition: all 400ms ease-in-out;
+}
+
+.btn-fill{
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.btn-fill:hover{
+  background-color: #f1c11a;
+  border-color: transparent;
+}
+	*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-image: url(../static/images/back-img.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+main{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.header{
+  height: 100vh;
+  color: #ffffff;
+  line-height: 50px;
+}
+.header-content{
+  padding-top: 40vh;
+  text-align: center;
+}
+
+</style>
+<body>
+
+ <main>
+    <!-- Header section start -->
+    <div class="header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="m-f">Welcome to blog</h1>
+        
+          <a href="{% url 'blogapp:blog' %}" class="btn btn-trans">blog</a>
+          
+        </div>
+      </div>
+    </div>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

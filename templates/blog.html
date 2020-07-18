@@ -1,0 +1,52 @@
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css" href="{% static 'css/style.css' %}"></style>
+</head>
+<body>
+	
+
+<a href="{% url 'blogapp:home' %}" class="btn btn-trans">home</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">SN</th>
+      <th scope="col">Title</th>
+      <th scope="col">image</th>
+      <th scope="col">Author</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+
+    </tr>
+  </thead>
+<tbody>
+{% for blog in allblog %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td class="text-danger">{{blog.title}}</td>
+    
+      <td><img src="{{blog.image.url }}" width="50"></td>
+      <td class="text-success">{{blog.author.name}} ago</td>
+      <td class="text-warning">{{blog.created_at}}</td>
+      <td class="text-dark">{{blog.updated_at}}</td>
+
+    </tr>
+    
+{% endfor %}
+    
+</tbody>
+</table>
+
+</body>
+</html>
+{% endblock %}
